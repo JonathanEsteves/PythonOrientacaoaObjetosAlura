@@ -10,6 +10,7 @@ print("Qual nível de dificuldade do jogo")
 print("(1) Fácil (2) Médio (3) Difícil: ")
  # Definindo o nível de dificuldade do jogo
 nivel=int(input("Defina o seu nível: "))
+pontos = 1000
 
 if (nivel == 1):
     total_de_tentativas = 15
@@ -19,7 +20,7 @@ else:
     total_de_tentativas = 5
 
 for rodada in range (1,total_de_tentativas + 1):
-  print("Tentativa {} de {}".format(rodada, total_de_tentativas))
+  print("Tentativa {} de {}".format(rodada, total_de_tentativas)) 
   chute_str = input("Digite o seu número entre 1 e 100: ")
   print("Você digitou: ", chute_str)
   chute = int(chute_str)
@@ -33,7 +34,7 @@ for rodada in range (1,total_de_tentativas + 1):
   chutemenor = chute < numero_secreto
 # bloqueando com o loop (break) ao usuário acertar o número secreto
   if(acertou):
-    print("Você acertou!")
+    print("Você acertou e fez {} pontos!" .format(pontos)) # exibindo a quantidade de pontos que o jogador fez no jogo
     break
   else:
    # utilizando (if) & (elif) na condição de checar o número for maior ou menor do número secreto
@@ -41,8 +42,7 @@ for rodada in range (1,total_de_tentativas + 1):
      print("Você errou! O seu chute foi maior do que o número secreto.")
    elif(chutemenor):
        print("Você errou! Seu chute foi menor que o número secreto.")
+  # implementando sistema de pontos para o jogo   
+ pontos_perdidos = numero_secreto - chute
+      pontos = pontos - pontos_perdidos
    print("Fim de jogo")
-
-
-
-
